@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commuter — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Commuter Chrome extension." />
+  <meta name="theme-color" content="#6366F1" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --indigo: #6366F1;
+      --indigo-deep: #4F46E5;
+      --ink: #14151A;
+      --muted: #6B7280;
+      --paper: #F3F4FA;
+      --line: rgba(20, 21, 26, 0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2 { font-family: "Newsreader", Georgia, serif; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 6vw 96px;
+    }
+    a { color: var(--indigo-deep); }
+    .back {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back:hover { color: var(--ink); }
+    h1 {
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 38px);
+      margin-bottom: 8px;
+    }
+    .updated {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      font-weight: 500;
+      font-size: 20px;
+      margin-top: 36px;
+      margin-bottom: 10px;
+    }
+    p, li { color: var(--ink); font-size: 15.5px; }
+    p { margin-bottom: 12px; }
+    ul { padding-left: 22px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    code {
+      font-size: 0.92em;
+      background: rgba(99, 102, 241, 0.08);
+      padding: 1px 5px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="index.html">← Back to Commuter</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 18 September 2026</p>
+
+    <p>Commuter is a Chrome extension that shows transit routes, connections, and travel time from your home to your work — or to a job listing you’re viewing. This page explains what data Commuter accesses, stores, and sends, and why.</p>
+
+    <h2>What Commuter accesses</h2>
+    <ul>
+      <li><strong>Your saved addresses and API keys</strong>, which you enter in Settings. These are used to request a transit route and, if you choose, to ask AI to find a workplace location.</li>
+      <li><strong>Job listing pages</strong> on supported boards (including LinkedIn, Indeed, Glassdoor, ZipRecruiter, Reed, Totaljobs, Monster, and CV-Library). On those sites, Commuter looks for a workplace address in structured job data (and, on LinkedIn, in visible page text) so it can show the commute to that job.</li>
+      <li><strong>Page text, only if you click “Use AI”.</strong> If no address can be found automatically, Commuter may offer to send a short excerpt of the posting to Anthropic. That only happens after you click the button — it is never sent in the background.</li>
+    </ul>
+
+    <h2>What Commuter stores</h2>
+    <p>Commuter stores the following on your device using Chrome’s <code>storage</code> API. None of this is sent to any server we control:</p>
+    <ul>
+      <li>Your Google Maps API key</li>
+      <li>Your Anthropic API key, if you choose to add one</li>
+      <li>Your home address</li>
+      <li>Your work address, if you add one</li>
+      <li>A short-lived, in-session record of a detected job on the current tab (title, company, and address, or unresolved page text), cleared when the tab is closed or reloaded</li>
+    </ul>
+    <p>Settings are stored with Chrome sync so they can follow your signed-in Chrome profile. Job detections stay in session storage only.</p>
+
+    <h2>What Commuter sends, and to whom</h2>
+    <p>Commuter does not operate its own backend. Requests go only to services you configure, and only as needed to show a route:</p>
+    <ul>
+      <li><strong>Google Maps Directions API</strong> (<code>maps.googleapis.com</code>) — when you open the popup to see a commute, Commuter sends your origin and destination (home, work, or a detected job address) with your API key to fetch transit directions. The same origin and destination may be loaded in a Maps embed so you can see the route.</li>
+      <li><strong>Anthropic API</strong> (<code>api.anthropic.com</code>) — only if you have added an Anthropic key and you click “Use AI” on a job page where no address was found. Commuter then sends a truncated excerpt of the posting (up to 6,000 characters) so the model can look for a workplace location. Your browsing history is not sent.</li>
+      <li><strong>Google Maps</strong> (in the browser) — if you click through to open the full directions, Chrome navigates to Google Maps with the same origin and destination.</li>
+    </ul>
+    <p>Commuter does not sell, share, or use your data for advertising, and does not track your browsing activity.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>storage</code> — lets Commuter save your settings and the in-session job detection described above.</li>
+      <li>Access to <code>maps.googleapis.com</code> — lets Commuter fetch transit directions and show a map embed with your own Google Maps API key.</li>
+      <li>Access to <code>api.anthropic.com</code> — lets Commuter call Anthropic only when you click “Use AI”.</li>
+      <li>Content scripts on supported job sites — let Commuter read workplace details from a listing so the popup can show that commute.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be raised via the <a href="https://github.com/h4l-git/commuter">Commuter GitHub repository</a>.</p>
+  </main>
+</body>
+</html>
