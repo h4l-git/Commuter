@@ -150,7 +150,7 @@ function setLoading(message) {
 }
 
 function openOptions() {
-  chrome.runtime.openOptionsPage();
+  window.location.href = "options.html";
 }
 
 document.getElementById("settings").addEventListener("click", openOptions);

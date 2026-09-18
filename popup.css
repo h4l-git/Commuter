@@ -54,12 +54,9 @@ header {
 .brand-icon {
   width: 26px;
   height: 26px;
-  border-radius: 8px;
-  background: var(--overlay-hover);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+  border-radius: 7px;
+  display: block;
+  object-fit: cover;
 }
 
 .brand-title {

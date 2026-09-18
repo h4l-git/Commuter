@@ -8,8 +8,11 @@
 </head>
 <body>
   <header>
+    <div class="actions">
+      <button id="back" title="Back">←</button>
+    </div>
     <div class="brand">
-      <div class="brand-icon">🧭</div>
+      <img class="brand-icon" src="icons/icon48.png" alt="" />
       <div class="brand-title">Commute</div>
     </div>
     <div class="route-pill">Settings</div>
@@ -17,7 +20,15 @@
 
   <div class="sheet">
     <div class="field">
-      <label for="apiKey">Google Maps API key</label>
+      <div class="field-label-row">
+        <label for="apiKey">Google Maps API key</label>
+        <a
+          class="get-key"
+          href="https://console.cloud.google.com/google/maps-apis/credentials"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Get API key</a>
+      </div>
       <input id="apiKey" type="text" placeholder="AIza…" autocomplete="off" />
       <p class="hint">
         Needs the <strong>Directions API</strong> enabled on a Google Cloud project.
@@ -26,7 +37,15 @@
     </div>
 
     <div class="field">
-      <label for="aiApiKey">🤖 Anthropic API key (optional)</label>
+      <div class="field-label-row">
+        <label for="aiApiKey">🤖 Anthropic API key (optional)</label>
+        <a
+          class="get-key"
+          href="https://console.anthropic.com/settings/keys"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Get API key</a>
+      </div>
       <input id="aiApiKey" type="text" placeholder="sk-ant-…" autocomplete="off" />
       <p class="hint">
         Only used when you explicitly click "Use AI" on a job page where no address

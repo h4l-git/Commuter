@@ -1,3 +1,15 @@
+document.getElementById("back").addEventListener("click", () => {
+  window.location.href = "popup.html";
+});
+
+document.querySelectorAll(".get-key").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!chrome?.tabs?.create) return;
+    event.preventDefault();
+    chrome.tabs.create({ url: link.href });
+  });
+});
+
 const apiKeyEl = document.getElementById("apiKey");
 const homeEl = document.getElementById("home");
 const workEl = document.getElementById("work");
