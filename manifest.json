@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Commute Route",
+  "version": "1.1.0",
+  "description": "Shows the transit route, connections, and travel time from your home to your work — or to a job you're viewing.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://maps.googleapis.com/*", "https://api.anthropic.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.linkedin.com/*",
+        "*://*.indeed.com/*",
+        "*://*.indeed.co.uk/*",
+        "*://www.glassdoor.com/*",
+        "*://www.glassdoor.co.uk/*",
+        "*://www.ziprecruiter.com/*",
+        "*://www.reed.co.uk/*",
+        "*://www.totaljobs.com/*",
+        "*://www.monster.com/*",
+        "*://www.cv-library.co.uk/*"
+      ],
+      "js": ["job-detector.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

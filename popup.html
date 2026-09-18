@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Commute Route</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="actions">
+      <button id="swap" title="Reverse direction">⇄</button>
+      <button id="refresh" title="Refresh">↻</button>
+      <button id="settings" title="Settings">⚙</button>
+    </div>
+    <div class="brand">
+      <div class="brand-icon">🧭</div>
+      <div class="brand-title">Commute</div>
+    </div>
+    <div class="route-pill" id="routeLabel">Home → Work</div>
+    <div class="job-pill" id="jobPill" hidden>📍 <span id="jobPillText"></span></div>
+  </header>
+
+  <div id="content" class="sheet">
+    <div class="state" id="loadingState">
+      <div class="spinner"></div>
+      <p>Finding your route…</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
